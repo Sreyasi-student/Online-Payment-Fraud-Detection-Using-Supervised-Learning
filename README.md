@@ -51,15 +51,4 @@ You'll also need a Kaggle account/API token configured for `kagglehub` to downlo
 
 Open the notebook and run all cells top to bottom (**Runtime → Restart and run all** in Colab / Jupyter). The pipeline is fully self-contained after the dataset download step.
 
-## Changelog — fixes applied
-
-This version resolves four issues found in the original notebook:
-
-| # | Issue | Fix |
-|---|---|---|
-| 1 | `Provider_ID` was left in the feature set despite the notebook's own text saying it would be dropped, risking leakage of provider-specific fraud history from train into test. | Dropped alongside `Claim_ID`. |
-| 2 | `rf_auc` / `xgb_auc` were referenced in print statements and the ROC plot but never defined — `NameError` on a clean run. | Computed via `roc_auc_score(y_test, proba)` before use. |
-| 3 | `num_features1 = num_features.remove('Is_Fraud')` set `num_features1` to `None` (`list.remove()` mutates in place and returns `None`). | Split into `.copy()` + `.remove()` on separate lines. |
-| 4 | The `ColumnTransformer` silently re-derived categorical/numeric feature lists by dtype, overriding the deliberate categorical treatment of `Chronic_Condition_Flag` and `Claim_Submission_Month`. | Reuses the manually curated `cat_features` / `num_features1` lists instead. |
-
 **Note:** because fix #1 removes a feature the models were previously trained on, metrics from a fresh run will differ from (and are more trustworthy than) any results generated before this fix.
