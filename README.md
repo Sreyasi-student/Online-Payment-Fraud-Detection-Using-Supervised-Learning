@@ -1,4 +1,4 @@
-# Healthcare Fraud Detection
+# Health Insurance Claims Fraud Detection using Supervised Learning
 
 A binary classification pipeline that flags fraudulent healthcare insurance claims, built on the Kaggle **[Healthcare Fraud Detection Dataset](https://www.kaggle.com/datasets/nudratabbas/healthcare-fraud-detection-dataset)**.
 
