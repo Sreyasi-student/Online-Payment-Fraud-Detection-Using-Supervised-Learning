@@ -6,7 +6,7 @@ A binary classification pipeline that flags fraudulent healthcare insurance clai
 
 ```
 .
-├── Healthcare_Fraud_detection_code_fixed.ipynb   # main notebook (EDA → cleaning → modeling → evaluation)
+├── Healthcare_Fraud_detection_code_final.ipynb   # main notebook (EDA → cleaning → modeling → evaluation)
 ├── Project_Report.docx                            # write-up of methodology, fixes, and results
 └── README.md
 ```
